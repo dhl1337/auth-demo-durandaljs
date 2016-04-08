@@ -12,13 +12,15 @@ requirejs.config({
     }
 });
 
+
 define(function (require) {
     var system = require('durandal/system'),
-        app = require('durandal/app');
+        app = require('durandal/app'),
+        viewLocator = require('durandal/viewLocator');
 
     system.debug(true);
 
-    app.title = 'Durandal Starter Kit';
+    app.title = 'Durandal Auth Demo';
 
     app.configurePlugins({
         router:true,
@@ -26,6 +28,9 @@ define(function (require) {
     });
 
     app.start().then(function() {
+
+        viewLocator.useConvention();
+
         app.setRoot('viewmodels/shell');
     });
 });
